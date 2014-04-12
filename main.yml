@@ -21,6 +21,7 @@
       - adium
       - subtitles
       - evernote
+      - google-hangouts
       
   tasks:  
     - name: Install libraries with homebrew
