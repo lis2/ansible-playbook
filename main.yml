@@ -28,7 +28,6 @@
       with_items:
         - wget
         - apple-gcc42
-        - ack
         - git
         - ruby-build
         - mysql
@@ -37,6 +36,14 @@
         - macvim
         - nodejs
         - rbenv
+        - zeromq
+        - sqlite
+        - scala
+        - redis
+        - htop-osx
+        - irssi
+        - the_silver_searcher
+        - elixir
 
     - name: Check for installed apps(casks)
       shell: brew cask list | grep {{ item }}
