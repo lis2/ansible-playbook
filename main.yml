@@ -1,0 +1,69 @@
+---
+- hosts: all
+  vars:
+    home: /Users/lis2
+    applications:
+      - google-chrome
+      - firefox
+      - sublime-text
+      - vlc
+      - iterm2
+      - sequel-pro
+      - skype
+      - dash
+      - transmit
+      - picasa
+      - viber
+      - teamviewer
+      - spotify
+      - virtualbox
+      - libreoffice
+      - adium
+      - subtitles
+      - evernote
+      
+  tasks:  
+    - name: Install libraries with homebrew
+      homebrew: name={{ item }} state=present
+      with_items:
+        - wget
+        - apple-gcc42
+        - ack
+        - git
+        - ruby-build
+        - mysql
+        - tmux
+        - mysql
+        - macvim
+        - nodejs
+        - rbenv
+
+    - name: Check for installed apps(casks)
+      shell: brew cask list | grep {{ item }}
+      register: installed_applications
+      with_items: applications
+      ignore_errors: true
+ 
+    - name: Install apps with brew-cask
+      shell: brew cask install {{ item }}
+      with_items: applications
+      when: "{{ item not in installed_applications.results|map(attribute='stdout') }}"
+
+    - name: Clone dotfiles
+      git: repo=https://github.com/lis2/{{ item }}.git dest={{ home }}/{{ item }} force=no update=no
+      with_items:
+        - dotfiles       
+
+    - name: Installed rubies
+      shell: rbenv versions
+      register: installed_rubies
+
+    - name: Install rubies
+      shell: rbenv install {{ item }}
+      with_items: 
+        - 2.0.0-p451
+      when: installed_rubies.stdout.find(item) == -1   
+
+    - name: Run symlink.rb
+      shell: ruby {{ home }}/dotfiles/symlink.rb
+
