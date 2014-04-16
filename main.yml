@@ -45,6 +45,7 @@
         - irssi
         - the_silver_searcher
         - elixir
+        - mongodb
 
     - name: Check for installed apps(casks)
       shell: brew cask list | grep {{ item }}
