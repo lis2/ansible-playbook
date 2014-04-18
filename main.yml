@@ -22,6 +22,7 @@
       - subtitles
       - evernote
       - google-hangouts
+      - alfred
       
   tasks:  
     - name: Install libraries with homebrew
