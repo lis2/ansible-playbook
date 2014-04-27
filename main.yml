@@ -2,6 +2,7 @@
 - hosts: all
   vars:
     home: /Users/lis2
+    ruby: 2.0.0
     applications:
       - google-chrome
       - firefox
@@ -11,7 +12,7 @@
       - sequel-pro
       - skype
       - dash
-      - transmit
+      - filezilla
       - picasa
       - viber
       - teamviewer
@@ -64,16 +65,10 @@
       with_items:
         - dotfiles       
 
-    - name: Installed rubies
-      shell: rbenv versions
-      register: installed_rubies
-
-    - name: Install rubies
-      shell: rbenv install {{ item }}
-      with_items: 
-        - 2.0.0-p451
-      when: installed_rubies.stdout.find(item) == -1   
-
     - name: Run symlink.rb
       shell: ruby {{ home }}/dotfiles/symlink.rb
+    - name: install rvm
+      shell: \curl -L https://get.rvm.io | bash -s stable --autolibs=3 creates=~/.rvm
 
+    - name: install ruby
+      shell: ~/.rvm/bin/rvm install --default {{ ruby }} creates=~/.rvm/rubies/{{ ruby }}
