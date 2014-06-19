@@ -24,31 +24,51 @@
       - evernote
       - google-hangouts
       - alfred
+      - appcleaner
+    brew:
+      - wget
+      - apple-gcc42
+      - git
+      - ruby-build
+      - mysql
+      - tmux
+      - mysql
+      - macvim
+      - nodejs
+      - rbenv
+      - zeromq
+      - sqlite
+      - scala
+      - redis
+      - htop-osx
+      - irssi
+      - the_silver_searcher
+      - elixir
+      - mongodb
+      - docker
       
   tasks:  
-    - name: Install libraries with homebrew
-      homebrew: name={{ item }} state=present
-      with_items:
-        - wget
-        - apple-gcc42
-        - git
-        - ruby-build
-        - mysql
-        - tmux
-        - mysql
-        - macvim
-        - nodejs
-        - rbenv
-        - zeromq
-        - sqlite
-        - scala
-        - redis
-        - htop-osx
-        - irssi
-        - the_silver_searcher
-        - elixir
-        - mongodb
+    - name: Check for installed apps(casks)
+      shell: brew list | grep {{ item }}
+      register: installed_brews
+      with_items: brew
+      ignore_errors: true
+ 
+    - name: Install apps with brew
+      shell: brew install {{ item }}
+      with_items: brew
+      when: "{{ item not in installed_brews.results|map(attribute='stdout') }}"
 
+    - name: Check for installed apps(casks)
+      shell: brew cask list | grep {{ item }}
+      register: installed_applications
+      with_items: applications
+      ignore_errors: true
+ 
+    - name: Install apps with brew-cask
+      shell: brew cask install {{ item }}
+      with_items: applications
+      when: "{{ item not in installed_applications.results|map(attribute='stdout') }}"
     - name: Check for installed apps(casks)
       shell: brew cask list | grep {{ item }}
       register: installed_applications
