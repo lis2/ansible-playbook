@@ -25,6 +25,9 @@
       - google-hangouts
       - alfred
       - appcleaner
+      - transmission
+      - dropbox
+       
     brew:
       - wget
       - apple-gcc42
@@ -46,6 +49,7 @@
       - elixir
       - mongodb
       - docker
+      - go
       
   tasks:  
     - name: Check for installed apps(casks)
