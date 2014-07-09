@@ -19,7 +19,7 @@
       - spotify
       - virtualbox
       - libreoffice
-      - adium
+      - slack
       - subtitles
       - evernote
       - google-hangouts
@@ -27,6 +27,9 @@
       - appcleaner
       - transmission
       - dropbox
+      - opennx
+      - knox
+      - xquartz
        
     brew:
       - wget
