@@ -30,6 +30,7 @@
       - opennx
       - knox
       - xquartz
+      - vyprvpn
        
     brew:
       - wget
@@ -53,6 +54,7 @@
       - mongodb
       - docker
       - go
+      - tig
       
   tasks:  
     - name: Check for installed apps(casks)
