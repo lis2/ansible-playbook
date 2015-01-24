@@ -13,7 +13,6 @@
       - skype
       - dash
       - filezilla
-      - picasa
       - viber
       - teamviewer
       - spotify
@@ -31,24 +30,23 @@
       - knox
       - xquartz
       - vyprvpn
+      - 1password
        
     brew:
       - wget
-      - apple-gcc42
       - git
       - ruby-build
       - mysql
       - tmux
       - mysql
       - macvim
-      - nodejs
+      - node
       - rbenv
       - zeromq
       - sqlite
       - scala
       - redis
       - htop-osx
-      - irssi
       - the_silver_searcher
       - elixir
       - mongodb
