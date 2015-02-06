@@ -5,6 +5,7 @@
     ruby: 2.0.0
     applications:
       - google-chrome
+      - alfred
       - firefox
       - sublime-text
       - vlc
@@ -31,6 +32,7 @@
       - xquartz
       - vyprvpn
       - 1password
+      - skitch
        
     brew:
       - wget
@@ -51,6 +53,7 @@
       - elixir
       - mongodb
       - docker
+      - boot2docker
       - go
       - tig
       
