@@ -15,16 +15,12 @@
       - dash
       - filezilla
       - viber
-      - teamviewer
-      - spotify
       - virtualbox
-      - libreoffice
       - slack
       - subtitles
       - evernote
       - google-hangouts
       - alfred
-      - appcleaner
       - transmission
       - dropbox
       - opennx
@@ -32,7 +28,10 @@
       - xquartz
       - vyprvpn
       - 1password
-      - skitch
+      - selfcontrol
+      - cheatsheet
+      - rescuetime
+        
        
     brew:
       - wget
