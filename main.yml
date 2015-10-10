@@ -15,7 +15,6 @@
       - viber
       - virtualbox
       - slack
-      - subtitles
       - evernote
       - google-hangouts
       - alfred
@@ -26,11 +25,12 @@
       - selfcontrol
       - screenflow
       - things
-      - cyberduck
       - appcleaner
       - nomachine
-      - specatcle
-        
+      - spectacle
+      - spotify
+      - cleanmymac
+      - airparrot
        
     brew:
       - wget
@@ -41,10 +41,12 @@
       - node
       - sqlite
       - redis
-      - htop-osx
       - the_silver_searcher
       - go
       - tig
+      - zeromq
+      - libsodium
+      - elixir
       
   tasks:  
     - name: Check for installed apps(casks)
