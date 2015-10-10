@@ -47,6 +47,7 @@
       - zeromq
       - libsodium
       - elixir
+      - fzf
       
   tasks:  
     - name: Check for installed apps(casks)
